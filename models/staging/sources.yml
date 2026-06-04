@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: retail_raw
+    description: "Raw retail data from CSV files loaded to BigQuery"
+    database: neat-bongo-497216-c8
+    schema: retail_data
+    tables:
+      - name: dim_store
+        description: "Store dimension table"
+        columns:
+          - name: Store ID
+            description: "Unique store identifier"
+          - name: Store Name
+          - name: Region
+          - name: Manager Email
+      
+      - name: dim_product
+        description: "Product dimension table"
+        columns:
+          - name: Product ID
+          - name: Product Name
+          - name: Category
+          - name: Unit Price
+          - name: Unit Cost
+      
+      - name: fact_sales
+        description: "Sales fact table"
+        columns:
+          - name: Sale ID
+          - name: Date
+          - name: Store ID
+          - name: Product ID
+          - name: Customer ID
+          - name: Quantity
+          - name: Total Amount
+
+      - name: dim_customer
+        description: "Customer dimension table"
+        columns:
+          - name: customer_id
+          - name: store_id
+          - name: email
+          - name: first_purchase_date

@@ -1,0 +1,112 @@
+version: 2
+
+models:
+  - name: stg_stores
+    description: "Cleaned store dimension data"
+    columns:
+      - name: store_id
+        tests:
+          - unique
+          - not_null
+      - name: store_name
+        tests:
+          - not_null
+      - name: region
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['North', 'South', 'East', 'West']
+      - name: manager_email
+        tests:
+          - not_null
+
+  - name: stg_products
+    description: "Cleaned product dimension with margin calculations"
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+      - name: product_name
+        tests:
+          - not_null
+      - name: category
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Electronics', 'Clothing', 'Home', 'Sports', 'Toys']
+      - name: unit_price
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: unit_cost
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: gross_margin_pct
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: -10
+                max_value: 1
+
+  - name: stg_sales
+    description: "Cleaned sales fact table"
+    columns:
+      - name: sale_id
+        tests:
+          - unique
+          - not_null
+      - name: sale_date
+        tests:
+          - not_null
+      - name: store_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_stores')
+              field: store_id
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+      - name: quantity
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1
+                max_value: 100
+      - name: unit_price
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: total_amount
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: calculated_amount
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "= total_amount"
+
+  - name: stg_customers
+    description: "Unique customers from sales data"
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_email
+        tests:
+          - not_null

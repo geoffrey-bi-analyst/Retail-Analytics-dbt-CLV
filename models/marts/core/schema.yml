@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: dim_stores
+    description: "Store dimension table - one row per store"
+    columns:
+      - name: store_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_products
+    description: "Product dimension table - one row per product"
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_customers
+    description: "Customer dimension with CLV metrics"
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: lifetime_value
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: customer_segment
+        tests:
+          - accepted_values:
+              values: ['Premium', 'Gold', 'Silver', 'Bronze']
+
+  - name: fact_sales
+    description: "Sales fact table - one row per transaction"
+    columns:
+      - name: sale_id
+        tests:
+          - unique
+          - not_null
+      - name: store_id
+        tests:
+          - relationships:
+              to: ref('dim_stores')
+              field: store_id
+      - name: product_id
+        tests:
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id

@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: customer_clv
+    description: "Customer Lifetime Value analysis with RFM segmentation"
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: recency_days
+        description: "Days since last purchase"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: frequency
+        description: "Number of purchases"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1
+      - name: monetary
+        description: "Total lifetime spending"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: predicted_12m_clv
+        description: "Predicted value for next 12 months"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: rfm_segment
+        description: "Customer segment based on Recency, Frequency, Monetary"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Champion', 'Loyal', 'Potential', 'At Risk', 'Churned', 'New']
+      - name: health_score
+        description: "Customer health score (0-100)"
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 100
+      - name: health_status
+        description: "Traffic light status based on health score"
+        tests:
+          - accepted_values:
+              values: ['Green - Healthy', 'Yellow - Monitor', 'Red - Attention']

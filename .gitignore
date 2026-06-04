@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+
+# dbt
+target/
+dbt_packages/
+logs/
+logs/*
+*.log
+
+# Environment variables
+.env
+.env.*
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets (IMPORTANT - never commit!)
+profiles.yml
+*.json
+!package-lock.json
+
+# Local configuration
+dbt_project.local.yml
