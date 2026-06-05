@@ -206,6 +206,32 @@ Predictive CLV for 12-month planning
 
 
 
+\## Live Dashboard
+
+
+
+View the interactive CLV dashboard on Looker Studio:
+
+
+
+\[🔗 Click here to view the Customer Lifetime Value Dashboard]https://datastudio.google.com/reporting/99b0657e-4094-4654-a2a8-6c7cffa5a3b9
+
+
+
+\### Dashboard Features
+
+\- \*\*KPI Cards\*\*: Total customers, average CLV, total lifetime value
+
+\- \*\*Segment Analysis\*\*: CLV distribution by customer segment
+
+\- \*\*Customer Ranking\*\*: Top 20 customers by predicted value
+
+\- \*\*Interactive Filtering\*\*: Filter by RFM segment
+
+
+
+
+
 Author
 
 Geoffrey BI-Analyst
