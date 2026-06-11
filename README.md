@@ -13,6 +13,7 @@
 - [Data Modeling](#-data-modeling-architecture)
 - [Security Implementation](#-security-implementation)
 - [CLV Insights](#-customer-lifetime-value-clv-insights)
+- [Executive Summary](#-executive-summary)
 - [Automation & Orchestration](#-automation--orchestration)
 - [dbt Project Structure](#-dbt-project-structure)
 - [Data Quality](#-data-quality-coverage)
@@ -266,6 +267,15 @@ Global retail chains face three critical challenges:
 
 ---
 
+## 🎯 Executive Summary
+
+"Our CLV analysis reveals a healthy customer base of 1,001 customers generating $61.9M in sales, with an average customer lifetime value of $185K. North region dominates at $40M, while East and West significantly underperform—presenting a $20M growth opportunity if we can replicate North's success.
+
+Retention is strong after month one, but 28% of new customers don't return after their first purchase—improving onboarding could add significant value. Our top 10 customers alone represent over $1M in predicted value and require dedicated attention.
+
+The retention heatmap shows our March 2023 cohort performing best, while April shows a concerning drop in month three. We should investigate what changed during that period."
+
+---
 ## 🔄 Automation & Orchestration
 
 ### dbt Cloud Production Job
@@ -505,7 +515,7 @@ dbt docs serve
 | **Platform** | **Link** |
 |-------------|----------|
 | GitHub | [github.com/geoffrey-bi-analyst](https://github.com/geoffrey-bi-analyst) |
-| LinkedIn | [linkedin.com/in/geoffrey-bi-analyst](https://linkedin.com/in/geoffrey-bi-analyst) |
+| LinkedIn | [linkedin.com/in/geoffrey-bi-analyst](https://www.linkedin.com/in/geoffrey-gari-3895582a1/) |
 | Email | kengaffrey360@gmail.com |
 
 ---
@@ -520,6 +530,6 @@ This project is open-source under the [MIT License](LICENSE).
 
 ⭐ **If you find this project valuable, please star it on GitHub!** ⭐
 
-*Built with ☁️ by Geoffrey | Data Analytics Engineer*
+*Built with☁️ by Geoffrey Kenga| Business Intelligence Data Analytics Engineer*
 
 </div>
