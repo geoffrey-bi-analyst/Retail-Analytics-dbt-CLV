@@ -1,4 +1,4 @@
-<img width="2336" height="1270" alt="clv analysis" src="https://github.com/user-attachments/assets/9050b22a-7f23-47f9-9ccb-e6f7e5eb284a" />
+
 # 🏆 Retail Analytics & Customer Lifetime Value (CLV) Platform
 
 > **An enterprise-grade Business Intelligence solution that transformed raw retail data into actionable customer insights — achieving a 360° view of customer value across 4 regions and 1,001 customers.**
@@ -353,7 +353,7 @@ retail-analytics-dbt-clv/
 <img width="1549" height="784" alt="clv analysis p3" src="https://github.com/user-attachments/assets/a6ec0673-397b-44d0-a825-74e766d96dab" />
 
 
-🔗 **[Click to View Live Dashboard](#)**
+🔗 [LIVE DASHBOARD](https://datastudio.google.com/reporting/bfecbf8d-4358-42ee-a2a4-e2dfca4419b7)
 
 **Features:**
 - KPI cards (total customers, revenue, avg CLV)
