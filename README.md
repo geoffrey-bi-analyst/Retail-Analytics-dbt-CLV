@@ -67,15 +67,15 @@ Global retail chains face three critical challenges:
 │                        DATA PIPELINE ARCHITECTURE                           │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌────────┐  │
-│  │   CSV    │──▶│   GCS    │──▶│  Cloud   │──▶│ BigQuery │──▶│  dbt   │  │
-│  │  Files   │   │  Bucket  │   │ Function │   │   Raw    │   │  Core  │  │
-│  └──────────┘   └──────────┘   └──────────┘   └──────────┘   └────┬───┘  │
-│                                                                      │      │
-│  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐         │      │
-│  │  Looker  │◀──│ Power BI │◀──│   dbt    │◀──│   dbt    │◀────────┘      │
-│  │  Studio  │   │Dashboard │   │  Cloud   │   │   Docs   │                │
-│  └──────────┘   └──────────┘   └──────────┘   └──────────┘                │
+│  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌────────┐     │
+│  │   CSV    │──▶│   GCS    │──▶│  Cloud   │──▶│ BigQuery │──▶│  dbt │     │
+│  │  Files   │   │  Bucket  │   │ Function │   │   Raw    │   │  Core  │     │
+│  └──────────┘   └──────────┘   └──────────┘   └──────────┘   └────┬───┘     │
+│                                                                   │         │
+│  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐        │         │
+│  │  Looker  │◀──│ Power BI │◀──│   dbt    │◀──│   dbt    │◀─────┘         │
+│  │  Studio  │   │Dashboard │   │  Cloud   │   │   Docs   │                  │
+│  └──────────┘   └──────────┘   └──────────┘   └──────────┘                  │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -105,31 +105,31 @@ Global retail chains face three critical challenges:
 │                            STAR SCHEMA DESIGN                               │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  ┌─────────────┐      ┌──────────────────────────────────────┐             │
-│  │  dim_stores │      │             fact_sales               │             │
-│  │─────────────│      │──────────────────────────────────────│             │
-│  │ store_id PK │─────▶│ store_id    FK                       │             │
-│  │ store_name  │      │ product_id  FK                       │             │
-│  │ region      │      │ customer_id FK                       │             │
-│  │ manager_email│     │ sale_date                            │             │
-│  └─────────────┘      │ quantity                             │             │
-│                        │ total_amount                         │             │
-│  ┌─────────────┐      │                                      │             │
-│  │dim_products │─────▶│                                      │             │
-│  │─────────────│      └──────────────────────────────────────┘             │
+│  ┌─────────────┐      ┌──────────────────────────────────────┐              │
+│  │  dim_stores │      │             fact_sales               │              │
+│  │─────────────│      │──────────────────────────────────────│              │
+│  │ store_id PK │─────▶│ store_id    FK                      │              │
+│  │ store_name  │      │ product_id  FK                       │              │
+│  │ region      │      │ customer_id FK                       │              │
+│  │ manager_email│     │ sale_date                            │              │
+│  └─────────────┘      │ quantity                             │              │
+│                       │ total_amount                         │              │
+│  ┌─────────────┐      │                                      │              │
+│  │dim_products │─────▶│                                     │              │
+│  │─────────────│      └──────────────────────────────────────┘              │ 
 │  │product_id PK│                          │                                 │
 │  │product_name │                          ▼                                 │
-│  │category     │      ┌──────────────────────────────────────┐             │
-│  │unit_price   │      │           dim_customers              │             │
-│  └─────────────┘      │──────────────────────────────────────│             │
-│                        │ customer_id PK                       │             │
-│  ┌─────────────┐      │ first_purchase_date                  │             │
-│  │dim_customers│◀─────│ lifetime_value                       │             │
-│  │─────────────│      │ customer_segment                     │             │
-│  │customer_id  │      │ health_score                         │             │
-│  │first_purchase│     └──────────────────────────────────────┘             │
+│  │category     │      ┌──────────────────────────────────────┐              │
+│  │unit_price   │      │           dim_customers              │              │
+│  └─────────────┘      │──────────────────────────────────────│              │
+│                       │ customer_id PK                       │              │
+│  ┌─────────────┐      │ first_purchase_date                  │              │
+│  │dim_customers│◀─────│ lifetime_value                      │              │
+│  │─────────────│      │ customer_segment                     │              │
+│  │customer_id  │      │ health_score                         │              │
+│  │first_purchase│     └──────────────────────────────────────┘              │
 │  │lifetime_value│                                                           │
-│  └─────────────┘                                                           │
+│  └─────────────┘                                                            │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -189,26 +189,27 @@ Global retail chains face three critical challenges:
 │                          CLV MODELING APPROACH                              │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│   RFM SEGMENTATION              PREDICTIVE CLV                             │
-│  ┌─────────────────────┐       ┌─────────────────────────┐                │
-│  │ Recency: Days since │       │  Avg Transaction Value  │                │
-│  │   last purchase     │       │  × Purchase Frequency   │                │
-│  ├─────────────────────┤       │  × 12 months / 4 cycles │                │
-│  │ Frequency: Total    │       │  = Predicted 12-month   │                │
-│  │   transactions      │       │    Customer Lifetime    │                │
-│  ├─────────────────────┤       │        Value            │                │
-│  │ Monetary: Total     │       └─────────────────────────┘                │
-│  │   spending          │                                                   │
-│  └─────────────────────┘                                                   │
+│   RFM SEGMENTATION              PREDICTIVE CLV                              │
+│  ┌─────────────────────┐       ┌─────────────────────────┐                  │
+│  │ Recency: Days since │       │  Avg Transaction Value  │                  │
+│  │   last purchase     │       │  × Purchase Frequency   │                  │
+│  ├─────────────────────┤       │  × 12 months / 4 cycles │                  │
+│  │ Frequency: Total    │       │  = Predicted 12-month   │                  │
+│  │   transactions      │       │    Customer Lifetime    │                  │
+│  ├─────────────────────┤       │        Value            │                  │
+│  │ Monetary: Total     │       └─────────────────────────┘                  │
+│  │   spending          │                                                    │
+│  └─────────────────────┘                                                    │
 │                                                                             │
-│   HEALTH SCORE (0–100)          CUSTOMER SEGMENTS                         │
-│  ┌─────────────────────┐       ┌─────────────────────────┐                │
-│  │ Recency Score  (40%)│       │ Champion   (>10K, >10x) │                │
-│  │ + Frequency    (35%)│       │ Loyal      (>5K,  >5x)  │                │
-│  │ + Monetary     (25%)│       │ Potential  (>1K,  >2x)  │                │
-│  │ = Health Score      │       │ At Risk    (<1K)         │                │
-│  └─────────────────────┘       │ Churned    (no purchase) │                │
-│                                 └─────────────────────────┘                │
+│   HEALTH SCORE (0–100)          CUSTOMER SEGMENTS BASED ON RFM              │
+│  ┌─────────────────────┐       ┌───────────────────────────────┐            │
+│  │ Recency Score  (40%)│       │ Champion   (R<30 F>10x, M>5K) │            │
+│  │ + Frequency    (35%)│       │ Loyal      (R<60 F>5x, M>2K)  │            │
+│  │ + Monetary     (25%)│       │ Potential  (R<90 F>2x, M>500) │            │
+│  │ = Health Score      │       │ At Risk    (R<120 F>1x)       |            │
+│  └─────────────────────┘       │ Churned    (R>120)            |            |
+│                                │ Else       (New)              |            |        
+│                                └───────────────────────────────┘            │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
