@@ -1,4 +1,4 @@
-markdown
+
 # 🏆 Retail Analytics & Customer Lifetime Value (CLV) Platform
 
 ## 🎯 Project Overview
