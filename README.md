@@ -429,17 +429,7 @@ Documentation - Complete, professional README + dbt docs
 Platform	Link
 GitHub	github.com/geoffrey-bi-analyst
 LinkedIn	linkedin.com/in/geoffrey-bi-analyst
-Portfolio	geoffrey-bi-analyst.com
 Email	kengaffrey360@gmail.com
-🙏 Acknowledgments
-Google Cloud - Free tier enabled this project
-
-dbt Labs - Community edition for learning
-
-Looker Studio - Free dashboarding platform
-
-Power BI - 60-day trial for enterprise features
-
 📄 License
 This project is open-source under the MIT License.
 
@@ -449,5 +439,3 @@ If you find this project valuable, please star it on GitHub to help others disco
 🔗 GitHub Repository
 
 Built with ☁️ by Geoffrey | Data Analytics Engineer
-
-
