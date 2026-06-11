@@ -1,3 +1,4 @@
+<img width="2336" height="1270" alt="clv analysis" src="https://github.com/user-attachments/assets/9050b22a-7f23-47f9-9ccb-e6f7e5eb284a" />
 # 🏆 Retail Analytics & Customer Lifetime Value (CLV) Platform
 
 > **An enterprise-grade Business Intelligence solution that transformed raw retail data into actionable customer insights — achieving a 360° view of customer value across 4 regions and 1,001 customers.**
@@ -94,6 +95,7 @@ Global retail chains face three critical challenges:
 ---
 
 ## 📐 Data Modeling Architecture
+<img width="3196" height="1577" alt="liniage graph" src="https://github.com/user-attachments/assets/4b3187ad-c346-4a88-9e7d-9f9c9d918a69" />
 
 ### Star Schema Design
 
@@ -346,6 +348,10 @@ retail-analytics-dbt-clv/
 ## 🖥️ Live Dashboards
 
 ### Looker Studio Dashboard
+<img width="1418" height="1033" alt="clv analysis p1" src="https://github.com/user-attachments/assets/ab043d1d-227b-4186-90a7-3ef3be281938" />
+<img width="1412" height="1041" alt="clv analysis p2" src="https://github.com/user-attachments/assets/861f3e88-6803-43a6-a392-062480b637f8" />
+<img width="1549" height="784" alt="clv analysis p3" src="https://github.com/user-attachments/assets/a6ec0673-397b-44d0-a825-74e766d96dab" />
+
 
 🔗 **[Click to View Live Dashboard](#)**
 
@@ -360,6 +366,7 @@ retail-analytics-dbt-clv/
 - Interactive filters (region, date range, segment)
 
 ### Power BI Dashboard
+<img width="2336" height="1270" alt="clv analysis" src="https://github.com/user-attachments/assets/0a744458-303b-443d-9fe2-486d6db0bb20" />
 
 **Features:**
 - Same core metrics as Looker Studio
