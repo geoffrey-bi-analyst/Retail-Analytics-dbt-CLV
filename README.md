@@ -280,18 +280,19 @@ Global retail chains face three critical challenges:
 ## 🔄 Automation & Orchestration
 
 ### dbt Cloud Production Job
+<img width="3362" height="1646" alt="clv daily refresh" src="https://github.com/user-attachments/assets/1d16d6be-37e4-4e2d-8b26-04eb19a4a1cb" />
 
 ```yaml
 Job Name:     Daily CLV Refresh
-Schedule:     6:00 AM daily
+Schedule:     Every 3hrs daily
 Commands:
   - dbt deps
   - dbt source freshness
   - dbt build
   - dbt test
 
-Success Rate: 83.78%
-Last 37 runs: 31 succeeded, 6 errored
+Success Rate: 90.00%
+Last 60 runs: 54 succeeded, 6 errored
 ```
 
 ### GCS Auto-Load Pipeline
@@ -388,6 +389,8 @@ retail-analytics-dbt-clv/
 ---
 
 ## 🔒 Access Control Matrix
+<img width="2298" height="1589" alt="East manager p1" src="https://github.com/user-attachments/assets/750626f1-1432-4fc5-aff9-8f8915279a09" />
+<img width="2170" height="1459" alt="North Manger p1" src="https://github.com/user-attachments/assets/b435fcaf-cf2d-4bab-9745-d8928a5681de" />
 
 | **User** | **Role** | **Regions Visible** | **Access Method** |
 |----------|----------|---------------------|-------------------|
