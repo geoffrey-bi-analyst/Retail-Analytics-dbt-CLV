@@ -293,6 +293,7 @@ Commands:
 
 Success Rate: 90.00%
 Last 60 runs: 54 succeeded, 6 errored
+Automated email notification in case of errored run due to failed data quality tests and warnings for immediate resolution
 ```
 
 ### GCS Auto-Load Pipeline
@@ -366,7 +367,8 @@ retail-analytics-dbt-clv/
 
 
 🔗 [LIVE DASHBOARD](https://datastudio.google.com/reporting/bfecbf8d-4358-42ee-a2a4-e2dfca4419b7)
-Automated for scheduled email delivary every 7.00am daily to the respective Regional Managers
+> Scheduled automated email delivery at 7:00 AM daily to Regional Managers, providing access to the most current dashboard based on validated data for accurate reporting and insights to support timely informed decision-making, strategic planning and performance monitoring.
+
 
 **Features:**
 - KPI cards (total customers, revenue, avg CLV)
