@@ -268,13 +268,13 @@ Global retail chains face three critical challenges:
 
 ---
 
-## 🎯 Executive Summary
+## 📄 Executive Summary
 
-"Our CLV analysis reveals a healthy customer base of 1,001 customers generating $61.9M in sales, with an average customer lifetime value of $185K. North region dominates at $40M, while East and West significantly underperform—presenting a $20M growth opportunity if we can replicate North's success.
+> - "Our CLV analysis reveals a healthy customer base of 1,001 customers generating $61.9M in sales, with an average customer lifetime value of $185K. North region dominates at $40M, while East and West significantly underperform—presenting a $20M growth opportunity if we can replicate North's success.
 
-Retention is strong after month one, but 28% of new customers don't return after their first purchase—improving onboarding could add significant value. Our top 10 customers alone represent over $1M in predicted value and require dedicated attention.
+> - Retention is strong after month one, but 28% of new customers don't return after their first purchase—improving onboarding could add significant value. Our top 10 customers alone represent over $1M in predicted value and require dedicated attention.
 
-The retention heatmap shows our March 2023 cohort performing best, while April shows a concerning drop in month three. We should investigate what changed during that period."
+> - The retention heatmap shows our March 2023 cohort performing best, while April shows a concerning drop in month three. We should investigate what changed during that period."
 
 ---
 ## 🔄 Automation & Orchestration
@@ -461,7 +461,7 @@ retail-analytics-dbt-clv/
 - BigQuery API enabled
 - dbt Cloud account (free tier works)
 
-### 30-Minute Setup
+### 10-Minute Setup
 
 ```bash
 # 1. Clone the repository
@@ -518,6 +518,7 @@ dbt docs serve
 | GitHub | [github.com/geoffrey-bi-analyst](https://github.com/geoffrey-bi-analyst) |
 | LinkedIn | [linkedin.com/in/geoffrey-bi-analyst](https://www.linkedin.com/in/geoffrey-gari-3895582a1/) |
 | Email | kengaffrey360@gmail.com |
+| Watsapp | +254 795 432 786 |
 
 ---
 
