@@ -366,7 +366,7 @@ retail-analytics-dbt-clv/
 
 
 🔗 [LIVE DASHBOARD](https://datastudio.google.com/reporting/bfecbf8d-4358-42ee-a2a4-e2dfca4419b7)
-
+Automated for scheduled email delivary every 7.00am daily 
 **Features:**
 - KPI cards (total customers, revenue, avg CLV)
 - Sales by region (bar chart)
