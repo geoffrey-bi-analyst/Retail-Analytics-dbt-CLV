@@ -293,7 +293,8 @@ Commands:
 
 Success Rate: 90.00%
 Last 60 runs: 54 succeeded, 6 errored
-Automated email notification in case of errored run due to failed data quality tests and warnings for immediate resolution
+Automated email notification in case of errored run due to failed data quality tests
+and warnings for immediate resolution
 ```
 
 ### GCS Auto-Load Pipeline
@@ -538,6 +539,6 @@ This project is open-source under the [MIT License](LICENSE).
 
 ⭐ **If you find this project valuable, please star it on GitHub!** ⭐
 
-*Built with☁️ by Geoffrey Kenga| Business Intelligence Data Analytics Engineer*
+*Built with☁️ by Geoffrey Kenga | Business Intelligence Data Analytics Engineer*
 
 </div>
